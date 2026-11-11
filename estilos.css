@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 50% 40%,
+        #302052 0%, #15132F 45%, #070817 100%);
+    color: white;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    color: white;
+    animation: brillar 2s infinite alternate;
+}
+
+@keyframes brillar {
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+.moon {
+    position: fixed;
+    top: 45px;
+    right: 12%;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #fff0c9;
+    box-shadow:
+        0 0 25px #fff0c9,
+        0 0 65px #c9a8ff;
+    z-index: 0;
+}
+
+.moon::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 27px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #17152f;
+}
+
+.contenedor {
+    position: relative;
+    z-index: 1;
+    max-width: 750px;
+    margin: auto;
+    padding: 65px 20px 45px;
+}
+
+.pequeno {
+    color: #d6b9ff;
+    letter-spacing: 5px;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.hora {
+    font-size: clamp(65px, 13vw, 110px);
+    color: #ffe1f0;
+    text-shadow:
+        0 0 15px #ff9ed0,
+        0 0 40px #b17cff;
+    animation: aparecer 2s ease-in-out;
+}
+
+h2 {
+    color: #ffc0dc;
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+.separador {
+    color: #e9c5ff;
+    font-size: 25px;
+    margin: 20px;
+}
+
+.mensaje {
+    font-size: 21px;
+    margin: 15px;
+    color: #f3eaff;
+}
+
+.deseo {
+    color: #ffb4d4;
+    font-size: clamp(21px, 4vw, 27px);
+    line-height: 1.5;
+    margin: 25px auto;
+}
+
+.corazon {
+    font-size: 65px;
+    color: #ff6da8;
+    text-shadow: 0 0 25px #ff4b9b;
+    animation: latido 1s infinite;
+}
+
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+}
+
+.frase {
+    color: #e6d1fa;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 25px auto;
+}
+
+button {
+    border: 1px solid #ffacd0;
+    background: linear-gradient(135deg, #a74783, #65418d);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 20px #a65ca5;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 35px #ff9bc9;
+}
+
+button:disabled {
+    opacity: 0.8;
+    cursor: default;
+}
+
+.carta {
+    display: none;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 190, 220, 0.5);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 35px auto;
+    max-width: 550px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(208, 130, 255, 0.2);
+}
+
+.carta.abierta {
+    display: block;
+    animation: aparecer 1s ease;
+}
+
+.carta p {
+    color: #f6e7f2;
+    line-height: 1.9;
+    margin: 18px 0;
+    font-size: 17px;
+}
+
+.frase-especial {
+    color: #ffd0e7;
+    font-size: 21px;
+    font-style: italic;
+    line-height: 1.9;
+    margin: 30px auto;
+    padding: 20px;
+    border: 1px solid #d99acb;
+    border-radius: 18px;
+    background: rgba(180, 100, 180, 0.12);
+    text-shadow: 0 0 12px #d77abf;
+}
+
+.musica {
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.musica p {
+    color: #ffd1e8;
+    margin: 15px;
+}
+
+.musica audio {
+    width: 100%;
+    max-width: 400px;
+}
+
+.dedicatoria-musical {
+    font-style: italic;
+    font-size: 15px;
+}
+
+.firma {
+    color: #ffb4d4 !important;
+    font-style: italic;
+}
+
+.final {
+    color: #d9c3fa;
+    margin-top: 40px;
+    font-style: italic;
+}
+
+.flotante {
+    position: fixed;
+    bottom: -30px;
+    color: #ff8ebd;
+    font-size: 20px;
+    pointer-events: none;
+    animation: subir 7s linear forwards;
+    z-index: 2;
+}
+
+@keyframes subir {
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 500px) {
+    .moon {
+        width: 65px;
+        height: 65px;
+        right: 8%;
+    }
+
+    .moon::after {
+        width: 65px;
+        height: 65px;
+        left: 20px;
+    }
+
+    .contenedor {
+        padding-top: 100px;
+    }
+
+    .carta {
+        padding: 20px;
+    }
+}
